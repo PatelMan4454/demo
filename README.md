@@ -1,70 +1,92 @@
-# 📲 AdMob Ads Integration in Unity
-
-This guide explains how to integrate **Banner Ads**, **Interstitial Ads**, and **Rewarded Ads** using Google AdMob in your Unity project.
+# Firebase Cloud Messaging Integration (Unity)
 
 ---
 
-## 🔗 Step 1: Download and Import AdMob Plugin
+## 🚀 Getting Started
 
-1. Open the official setup guide: [AdMob Unity Quick Start](https://developers.google.com/admob/unity/quick-start)  
-2. Download the latest **Google Mobile Ads Unity plugin** and import it into your Unity project.
-3. After importing:
-   - **Close and reopen** your Unity project.
-   - Then go to:  
-     `Assets → External Dependency Manager → Android Resolver → Force Resolve`
+### 1. Create a New Unity Project  
+### 2. Switch Platform to **Android** via **File > Build Settings**
 
 ---
 
-## 📦 Step 2: Banner Ad Setup
+## 🔧 Firebase Console Setup
 
-1. Create an **empty GameObject** in your scene and name it `Banner`.
-2. Create a new **C# script** named `Banner`.
-3. Paste this code in the script:  
-   🔗 [BannerAd Script](https://pastebin.com/raw/FX8YSTjP)
-4. Attach the `Banner` script to the `Banner` GameObject.
-5. Press **Play** — the banner ad will appear.
-
----
-
-## 🎬 Step 3: Interstitial Ad Setup
-
-1. Create an **empty GameObject** named `Interstitial`.
-2. Create a new **C# script** named `Interstitial`.
-3. Paste this code in the script:  
-   🔗 [InterstitialAd Script](https://pastebin.com/raw/Q8dVi6hq)
-4. Attach the `Interstitial` script to the `Interstitial` GameObject.
-5. Press **Play** — the interstitial ad will appear.
+1. Go to 👉 [Firebase Console](https://console.firebase.google.com)  
+2. Click **"Add Project"**
+3. Enter your **Project Name**, then click **Continue**
+4. Continue through Analytics setup
+5. In Google Analytics, select **Default Account for Firebase**
+6. Once created, go to **Project Settings** (⚙️)
+7. Scroll to **Your Apps** and click the **Unity** icon
+8. Check **Register as Android app**, enter your **Package Name** and **App Name**, then click **Register App**
+9. Download the `google-services.json` file
 
 ---
 
-## 🎁 Step 4: Rewarded Ad Setup
+## 🔌 Unity Setup
 
-1. Create an **empty GameObject** named `Rewarded`.
-2. Create a new **C# script** named `Rewarded`.
-3. Paste this code in the script:  
-   🔗 [RewardedAd Script](https://pastebin.com/raw/Qy1avYJt)
-4. Attach the `Rewarded` script to the `Rewarded` GameObject.
-5. Press **Play** — the rewarded ad will appear.
+1. Place `google-services.json` inside the `Assets/` folder
+2. Download and import the [Firebase Unity SDK](https://firebase.google.com/download/unity)  
+   - Unzip it and import **Firebase Messaging** into Unity
+3. Restart Unity
 
 ---
 
-## ⚙️ Step 5: Setup AdMob in Unity
+## 🧩 Firebase Code Integration in Unity
 
-1. Go to [Google AdMob](https://admob.google.com/) and create a new app.
-2. Enter your app name and choose your platform (Android/iOS).
-3. In the **App Settings**, copy your **App ID**.
-4. In Unity:  
-   `Assets → Google Mobile Ads → Settings`  
-   Paste the App ID into the appropriate Android/iOS field.
-5. In AdMob, create the following **Ad Units**:
-   - Banner Ad
-   - Interstitial Ad
-   - Rewarded Ad
-6. Copy each **Ad Unit ID** and paste it into the correct script:
-   - ✅ **Banner Ad ID** → in `Banner` script
-   - ✅ **Interstitial Ad ID** → in `Interstitial` script
-   - ✅ **Rewarded Ad ID** → in `Rewarded` script
+1. In Unity:
+   - Create an **Empty GameObject** and name it `PushNotification`
+   - Create a new C# script called `PushNotification.cs`
+   - Copy the code from 👉 [PushNotification Script Code](https://pastebin.com/raw/DqBjTFeH)
+   - Attach the script to the `PushNotification` GameObject
+
+2. Make a build of your project
 
 ---
 
-✅ Done! Your Unity project is now ready to serve AdMob ads.
+## ⚠️ Troubleshooting (Build/Crash Issues)
+
+### Player Settings
+
+Go to **Edit > Project Settings > Player > Other Settings** and set:
+
+- **Minimum API Level**: Android 7.0 (API Level 24) or higher
+- **Scripting Backend**: IL2CPP
+- **Target Architectures**: ARMv7 and ARM64
+
+### AndroidManifest.xml Setup
+
+If `AndroidManifest.xml` doesn't exist in `Assets/Plugins/Android`, create one with:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+🧪 Testing Push Notifications
+On your Android device:
+Go to Settings > App Info > Notification and ensure it's enabled
+
+On Firebase Console:
+Go to Run > Messaging
+
+Click Create your first campaign
+
+Choose Notification, then click Create
+
+Enter Title and Message
+
+Select your App
+
+Choose Send Now or Schedule
+
+Click Review then Publish
+
+📲 Your device should receive the notification within 2–5 minutes
+
+✅ Final Checklist
+ Unity build is working
+
+ Notification permission allowed
+
+ google-services.json correctly placed in Assets
+
