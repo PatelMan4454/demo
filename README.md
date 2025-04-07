@@ -62,31 +62,32 @@ If `AndroidManifest.xml` doesn't exist in `Assets/Plugins/Android`, create one w
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
-🧪 Testing Push Notifications
-On your Android device:
-Go to Settings > App Info > Notification and ensure it's enabled
 
-On Firebase Console:
-Go to Run > Messaging
+###🧪 Testing Push Notifications
+- **On your Android device:
+- **Go to Settings > App Info > Notification and ensure it's enabled
 
-Click Create your first campaign
+- **On Firebase Console:
+- **Go to Run > Messaging
 
-Choose Notification, then click Create
+- **Click Create your first campaign
 
-Enter Title and Message
+- **Choose Notification, then click Create
 
-Select your App
+- **Enter Title and Message
 
-Choose Send Now or Schedule
+- **Select your App
 
-Click Review then Publish
+- **Choose Send Now or Schedule
 
-📲 Your device should receive the notification within 2–5 minutes
+- **Click Review then Publish
 
-✅ Final Checklist
- Unity build is working
+##📲 Your device should receive the notification within 2–5 minutes
 
- Notification permission allowed
+##✅ Final Checklist
+ - **Unity build is working
 
- google-services.json correctly placed in Assets
+- ** Notification permission allowed
+
+- ** google-services.json correctly placed in Assets
 
