@@ -54,15 +54,6 @@ Go to **Edit > Project Settings > Player > Other Settings** and set:
 - **Scripting Backend**: IL2CPP
 - **Target Architectures**: ARMv7 and ARM64
 
-### AndroidManifest.xml Setup
-
-If `AndroidManifest.xml` doesn't exist in `Assets/Plugins/Android`, create one with:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-
 ###🧪 Testing Push Notifications
 - **On your Android device:
 - **Go to Settings > App Info > Notification and ensure it's enabled
@@ -90,4 +81,15 @@ If `AndroidManifest.xml` doesn't exist in `Assets/Plugins/Android`, create one w
 - ** Notification permission allowed
 
 - ** google-services.json correctly placed in Assets
+
+
+
+### AndroidManifest.xml Setup
+
+If `AndroidManifest.xml` doesn't exist in `Assets/Plugins/Android`, create one with:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
 
